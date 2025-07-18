@@ -24,11 +24,27 @@ config = RunConfig(
 )
 
 @function_tool
-def get_career_roadmap():
+def get_career_roadmap(career_field: str) -> dict:
     """
-    Returns a roadmap for a career in the tech industry.
+    Returns a mock roadmap of skills needed for a given career field like Data Scientist, Frontend Developer, backend Developer.
     """
-    return career_mentor_agent()
+    mock_roadmaps = {
+        "Frontend Developer": {
+            "foundation": ["HTML", "CSS", "JavaScript"],
+            "core": ["React.js", "TypeScript", "Responsive Design"],
+        },
+        "Data Scientist": {
+            "foundation": ["Python", "Math & Stats", "SQL"],
+            "core": ["Pandas", "Scikit-Learn", "Data Visualization"],
+        },
+        "Backend Developer": {
+            "foundation": ["Python or Node.js", "Databases (SQL/NoSQL)", "REST APIs"],
+            "core": ["Authentication", "Docker", "Testing"],
+          }
+    }
+
+    return mock_roadmaps()
+
 
 career_agent = Agent(
     name= "Career Agent",
